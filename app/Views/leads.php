@@ -1,31 +1,52 @@
-<?php require 'header.php'?>
-<h1>Статусы лидов</h1>
+<?php require 'header.php'; ?>
 
-<form method="GET" action="/leads">
-	<label>Дата от: <input type="date" name="start_date"></label>
-	<label>Дата до: <input type="date" name="end_date"></label>
-	<button type="submit">Фильтровать</button>
-</form>
+<div class="container mt-5">
+	<h1 class="mb-4">Lead statuses</h1>
 
-<table border="1">
-	<tr>
-		<th>ID</th>
-		<th>Email</th>
-		<th>Status</th>
-		<th>FTD</th>
-	</tr>
+	<form method="GET" action="/leads" class="mb-4">
+		<div class="form-row d-flex gap-3">
+			<div class="form-group col-md-3">
+				<label for="startDate">Date from</label>
+				<input type="date" class="form-control" id="startDate" name="start_date" value="<?php echo htmlspecialchars($_GET['start_date'] ?? ''); ?>">
+			</div>
+			<div class="form-group col-md-3">
+				<label for="endDate">Date to</label>
+				<input type="date" class="form-control" id="endDate" name="end_date" value="<?php echo htmlspecialchars($_GET['end_date'] ?? ''); ?>">
+			</div>
+			<div class="form-group col-md-3 d-flex align-items-end">
+				<button type="submit" class="btn btn-primary">Filter</button>
+			</div>
+		</div>
+	</form>
 
-	<?php if (!empty($leads)): ?>
-		<?php foreach ($leads as $lead): ?>
+	<div class="table-responsive">
+		<table class="table table-striped table-bordered">
+			<thead>
 			<tr>
-				<td><?= $lead['id'] ?></td>
-				<td><?= $lead['email'] ?></td>
-				<td><?= $lead['status'] ?></td>
-				<td><?= $lead['ftd'] ?></td>
+				<th>ID</th>
+				<th>Email</th>
+				<th>Status</th>
+				<th>FTD</th>
 			</tr>
-		<?php endforeach; ?>
-	<?php else: ?>
-		<tr><td colspan="4">Нет данных</td></tr>
-	<?php endif; ?>
-</table>
-<?php require 'footer.php'?>
+			</thead>
+			<tbody>
+			<?php if (!empty($leads['data'])): ?>
+				<?php foreach ($leads['data'] as $lead): ?>
+					<tr>
+						<td><?= htmlspecialchars($lead['id']) ?></td>
+						<td><?= htmlspecialchars($lead['email']) ?></td>
+						<td><?= htmlspecialchars($lead['status']) ?></td>
+						<td><?= htmlspecialchars($lead['ftd']) ?></td>
+					</tr>
+				<?php endforeach; ?>
+			<?php else: ?>
+				<tr>
+					<td colspan="4" class="text-center">Нет данных</td>
+				</tr>
+			<?php endif; ?>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<?php require 'footer.php'; ?>
