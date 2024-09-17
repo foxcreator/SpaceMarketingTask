@@ -29,7 +29,7 @@
 				   class="form-control"
 				   id="lastName"
 				   name="lastName"
-				   value="<?php echo htmlspecialchars($formData['firstName'] ?? ''); ?>"
+				   value="<?php echo htmlspecialchars($formData['lastName'] ?? ''); ?>"
 				   required
 			>
 		</div>
@@ -39,7 +39,7 @@
 				   class="form-control"
 				   id="phone"
 				   name="phone"
-				   value="<?php echo htmlspecialchars($formData['firstName'] ?? ''); ?>"
+				   value="<?php echo htmlspecialchars($formData['phone'] ?? ''); ?>"
 				   required
 			>
 		</div>
@@ -48,7 +48,7 @@
 			<input type="email"
 				   class="form-control"
 				   id="email" name="email"
-				   value="<?php echo htmlspecialchars($formData['firstName'] ?? ''); ?>"
+				   value="<?php echo htmlspecialchars($formData['email'] ?? ''); ?>"
 				   required
 			>
 		</div>

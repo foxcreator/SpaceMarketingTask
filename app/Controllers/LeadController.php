@@ -32,7 +32,7 @@ class LeadController
 		$errors = $this->validateInput($_POST);
 
 		if (empty($errors)) {
-			$this->leadModel->addLead($_POST['firstName'], $_POST['lastName'], $_POST['phone'], $_POST['email']);
+			$this->leadModel->addLead($_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['phone'],);
 			unset($_SESSION['formData']);
 			header('Location: /leads');
 			exit;

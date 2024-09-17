@@ -3,13 +3,13 @@
 namespace App\Models;
 
 use App\Services\Config;
-use App\Services\Providers\TrackerInterface;
+use App\Services\Providers\FirstTracker;
 
 class Lead
 {
 	private $tracker;
 
-	public function __construct(TrackerInterface $tracker)
+	public function __construct(FirstTracker $tracker)
 	{
 		$this->tracker = $tracker;
 	}
