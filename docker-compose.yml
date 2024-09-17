@@ -1,0 +1,29 @@
+version: "3.3"
+
+services:
+    nginx:
+        build:
+            context: .
+            dockerfile: docker/Nginx.Dockerfile
+        ports:
+            - 8000:80
+        links:
+            - fpm
+        volumes:
+            - ./:/var/www/SpaceMarketingTask
+    fpm:
+        build:
+            context: .
+            dockerfile: docker/fpm.Dockerfile
+        volumes:
+            - ./:/var/www/SpaceMarketingTask
+        working_dir: /var/www/SpaceMarketingTask
+#        user: 1000:1000
+    mysql:
+        image: mysql:8.0
+        ports:
+            - 33061:3306
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=acoustic_shop
+
