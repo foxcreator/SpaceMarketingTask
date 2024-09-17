@@ -24,7 +24,7 @@ class LeadController
 		$formData = $_SESSION['formData'] ?? [];
 		unset($_SESSION['errors'], $_SESSION['formData']);
 
-		require_once '../app/views/form.php';
+		require_once '../app/Views/form.php';
 	}
 
 	public function submitLead()
@@ -51,7 +51,7 @@ class LeadController
 		$endDate = $_GET['end_date'] ?? null;
 		$leads = $this->leadModel->getStatuses($startDate, $endDate);
 
-		require_once '../app/views/leads.php';
+		require_once '../app/Views/leads.php';
 	}
 
 	private function validateInput($data)
