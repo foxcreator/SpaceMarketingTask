@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Services\Config;
 use App\Services\Providers\FirstTracker;
 
 class Lead

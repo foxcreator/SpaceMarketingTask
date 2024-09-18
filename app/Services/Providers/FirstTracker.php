@@ -6,7 +6,6 @@ use App\Services\Config;
 
 class FirstTracker implements TrackerInterface
 {
-
 	private $apiUrl;
 	private $apiKey;
 
@@ -45,8 +44,8 @@ class FirstTracker implements TrackerInterface
 		$data = [];
 
 		if ($startDate && $endDate) {
-			$data['startDate'] = $startDate;
-			$data['endDate'] = $endDate;
+			$data['date_from'] = $startDate . ' 00:00:00';
+			$data['date_to'] = $endDate . ' 23:59:59';
 		}
 
 		return $this->makeRequest($url, $data);

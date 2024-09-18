@@ -41,7 +41,7 @@
 				<?php endforeach; ?>
 			<?php else: ?>
 				<tr>
-					<td colspan="4" class="text-center">Нет данных</td>
+					<td colspan="4" class="text-center">No data</td>
 				</tr>
 			<?php endif; ?>
 			</tbody>
